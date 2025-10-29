@@ -29,15 +29,8 @@
         <%= "#{@user.name}さんのプロトタイプ"%>
       </h2>
 
-      <div class="user__card">
-        <% @prototypes.each do |prototype| %>
-          <%= link_to prototype_path(prototype) do %>
-            <% if prototype.image.attached? %>
-              <%= image_tag prototype.image, class: :card__img %>
-            <% end %>
-            <p><%= prototype.title %></p>
-          <% end %>
-        <% end %>
+      <div class="card__wrapper">
+        <%= render partial: "prototypes/prototype", collection: @prototypes %>
       </div>
     </div>
   </div>
